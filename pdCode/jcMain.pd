@@ -1,0 +1,128 @@
+#N canvas 16 77 1893 999 10;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array muestraGen 41984 float 2;
+#X coords 0 1 41984 -1 200 140 1;
+#X restore 264 360 graph;
+#X msg 182 490 muestraGen;
+#X obj 62 441 bng 15 250 50 0 empty sndAbrirArchivo empty 17 7 0 10
+-262144 -1 -1;
+#X floatatom 59 552 10 0 0 0 - - -, f 10;
+#X obj 59 514 jc_modulo_openFile;
+#X obj 53 700 *~;
+#X floatatom 72 673 5 0 1 0 - sndVOLUMENarchivo -, f 5;
+#X obj 458 895 dac~;
+#X obj 323 564 hradio 15 1 0 2 empty sndDisAumenVelocidad disminuir/aumentar
+-30 -8 0 10 -262144 -1 -1 0;
+#X obj 187 568 hradio 15 1 0 2 empty sndNorRev0 normal/reversa -25
+-8 0 10 -262144 -1 -1 0;
+#X obj 412 564 hradio 15 1 0 8 empty sndVelocidadAudio velocidad 0
+-8 0 10 -262144 -1 -1 0;
+#X text 785 1083 ----------- Limite -----------;
+#X obj 54 732 s~ lSoundFile;
+#X obj 331 853 r~ lSoundFile;
+#X obj 52 137 cnv 15 350 200 empty empty Controles_de_archivo_de_audio
+20 12 0 14 -162280 -66577 0;
+#X obj 70 172 cnv 15 100 100 empty empty Archivo 20 12 0 14 -233017
+-66577 0;
+#X obj 72 201 bng 15 250 50 0 sndAbrirArchivo empty Abrir_Archivo 17
+7 0 10 -191407 -1 -1;
+#X obj 74 237 bng 15 250 50 0 sndPlay0 notaAct0 Reproducir 17 7 0 10
+-4034 -1 -1;
+#X obj 356 178 vsl 30 100 0 1 0 1 sndVOLUMENarchivo empty volumen 0
+-9 0 10 -258113 -1 -1 5269 1;
+#X obj 228 223 hradio 15 1 1 2 sndDisAumenVelocidad empty disminuir/aumentar
+-30 -8 0 10 -262144 -1 -1 0;
+#X obj 224 187 hradio 15 1 0 2 sndNorRev0 sndPlay0 normal/reversa -25
+-8 0 10 -262144 -1 -1 0;
+#X obj 198 259 hradio 15 1 1 8 sndVelocidadAudio empty velocidad 0
+-8 0 10 -262144 -1 -1 0;
+#X obj 691 21 cnv 15 400 60 empty empty Activa_desactivo_sonido_pure_data
+20 12 0 14 -233017 -66577 0;
+#X obj 799 45 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X msg 827 59 \; pd dsp \$1;
+#N canvas 0 50 450 250 (subpatch) 0;
+#X array muestraGen1 57344 float 2;
+#X coords 0 1 57344 -1 200 140 1 0 0;
+#X restore 881 375 graph;
+#X obj 672 438 bng 15 250 50 0 empty sndAbrirArchivo1 empty 17 7 0
+10 -262144 -1 -1;
+#X floatatom 669 549 10 0 0 0 - - -, f 10;
+#X obj 669 511 jc_modulo_openFile;
+#X obj 667 728 *~;
+#X floatatom 686 701 5 0 1 0 - sndVOLUMENarchivo1 -, f 5;
+#X obj 934 571 hradio 15 1 0 2 empty sndDisAumenVelocidad1 disminuir/aumentar
+-30 -8 0 10 -262144 -1 -1 0;
+#X obj 798 575 hradio 15 1 0 2 empty sndNorRev1 normal/reversa -25
+-8 0 10 -262144 -1 -1 0;
+#X obj 1023 571 hradio 15 1 0 8 empty sndVelocidadAudio1 velocidad
+0 -8 0 10 -262144 -1 -1 0;
+#X obj 639 150 cnv 15 350 200 empty empty Controles_de_archivo_de_audio
+20 12 0 14 -162280 -66577 0;
+#X obj 657 185 cnv 15 100 100 empty empty Archivo 20 12 0 14 -233017
+-66577 0;
+#X obj 659 214 bng 15 250 50 0 sndAbrirArchivo1 empty Abrir_Archivo
+17 7 0 10 -191407 -1 -1;
+#X obj 661 250 bng 15 250 50 0 sndPlay1 notaAct1 Reproducir 17 7 0
+10 -4034 -1 -1;
+#X obj 925 181 vsl 30 100 0 1 0 1 sndVOLUMENarchivo1 empty volumen
+0 -9 0 10 -258113 -1 -1 4300 1;
+#X obj 804 226 hradio 15 1 1 2 sndDisAumenVelocidad1 empty disminuir/aumentar
+-30 -8 0 10 -262144 -1 -1 0;
+#X obj 802 189 hradio 15 1 0 2 sndNorRev1 sndPlay1 normal/reversa -25
+-8 0 10 -262144 -1 -1 0;
+#X obj 779 267 hradio 15 1 1 8 sndVelocidadAudio1 empty velocidad 0
+-8 0 10 -262144 -1 -1 0;
+#X msg 792 486 muestraGen1;
+#X obj 669 600 jc_modulo_playSound, f 59;
+#X obj 58 601 jc_modulo_playSound, f 60;
+#X obj 666 639 tabread4~ muestraGen1;
+#X obj 668 760 s~ lSoundFile1;
+#X obj 463 848 r~ lSoundFile1;
+#X obj 355 17 notein;
+#X floatatom 355 65 5 0 0 0 - - -, f 5;
+#X floatatom 422 56 5 0 0 0 - - -, f 5;
+#X floatatom 467 31 5 0 0 0 - - -, f 5;
+#X obj 537 102 sel 37 40;
+#X obj 71 121 bng 15 250 50 0 notaAct0 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 639 134 bng 15 250 50 0 notaAct1 empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 57 640 tabread4~ muestraGen;
+#X text 314 736 Reproduccion de archivo de audio. Activado por MIDI.
+Jorge Coutiño 2020/01/02, f 23;
+#X connect 1 0 4 1;
+#X connect 2 0 1 0;
+#X connect 2 0 4 0;
+#X connect 3 0 44 0;
+#X connect 4 0 3 0;
+#X connect 5 0 12 0;
+#X connect 6 0 5 1;
+#X connect 8 0 44 2;
+#X connect 9 0 44 1;
+#X connect 10 0 44 3;
+#X connect 13 0 7 0;
+#X connect 13 0 7 1;
+#X connect 23 0 24 0;
+#X connect 26 0 42 0;
+#X connect 26 0 28 0;
+#X connect 27 0 43 0;
+#X connect 28 0 27 0;
+#X connect 29 0 46 0;
+#X connect 30 0 29 1;
+#X connect 31 0 43 2;
+#X connect 32 0 43 1;
+#X connect 33 0 43 3;
+#X connect 42 0 28 1;
+#X connect 43 0 45 0;
+#X connect 44 0 55 0;
+#X connect 45 0 29 0;
+#X connect 47 0 7 0;
+#X connect 47 0 7 1;
+#X connect 48 0 49 0;
+#X connect 48 1 50 0;
+#X connect 48 2 51 0;
+#X connect 49 0 52 0;
+#X connect 52 0 53 0;
+#X connect 52 1 54 0;
+#X connect 55 0 5 0;

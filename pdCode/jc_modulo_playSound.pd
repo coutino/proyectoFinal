@@ -1,0 +1,112 @@
+#N canvas 1040 240 689 624 10;
+#X obj 329 33 cnv 15 350 550 empty empty Velocidad_de_sonido 20 12
+0 14 -233017 -66577 0;
+#X obj 491 249 * \$1, f 6;
+#X obj 550 140 hradio 15 1 1 8 empty empty velocidad 0 -8 0 10 -262144
+-1 -1 0;
+#X floatatom 491 290 5 1 8 0 - - -, f 5;
+#X floatatom 483 117 5 0 0 0 Entrada_tiempo - -, f 5;
+#X floatatom 603 283 5 1 8 0 - - -, f 5;
+#X obj 603 169 + 1;
+#X floatatom 602 195 5 1 8 0 - - -, f 5;
+#X obj 502 184 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 600 245 expr $f1/$f2;
+#X obj 395 201 hradio 15 1 0 2 empty empty disminuir/aumentar -30 -8
+0 10 -262144 -1 -1 0;
+#X obj 416 315 select 0 1;
+#X obj 587 387 pack f f;
+#X obj 445 384 pack f f;
+#X obj 467 363 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 601 365 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 488 479 5 0 0 0 - - -, f 5;
+#X msg 525 410 \$2;
+#X text 526 471 Salida de tiempo;
+#X obj 393 154 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 41 595 cnv 15 400 400 empty empty Seleccion_Normal_o_Reversa
+20 12 0 14 -233017 -66577 0;
+#X obj 76 672 hradio 15 1 0 2 empty sndNorRev normal/reversa -25 -8
+0 10 -262144 -1 -1 0;
+#X obj 53 717 select 0 1;
+#X obj 155 657 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 222 645 7 0 0 0 - - -, f 7;
+#X floatatom 324 646 7 0 0 0 - - -, f 7;
+#X text 232 631 muestra;
+#X text 339 632 tiempo;
+#X obj 57 762 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 237 760 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 245 781 pack f f f;
+#X obj 69 784 pack f f f;
+#X msg 69 832 0 \, \$2 \$3;
+#X msg 244 835 \$2 \, 0 \$3;
+#X obj 275 805 print "reversa";
+#X obj 107 807 print "normal";
+#X obj 15 21 inlet;
+#X obj 360 80 expr int(($f1 / 44100)*1000);
+#X text 561 82 calculo del tiempo de acuerdo a la muestra;
+#X text 8 5 entrada de numero de muestreo;
+#X obj 92 79 inlet;
+#X text 82 64 normal/reversa;
+#X obj 184 865 line~;
+#X obj 184 926 outlet~;
+#X obj 191 109 inlet;
+#X obj 535 13 inlet;
+#X text 169 91 disminuir/aumentar;
+#X text 586 12 velocidad;
+#X text 242 930 salida para tabread;
+#X connect 1 0 3 0;
+#X connect 2 0 6 0;
+#X connect 2 0 8 0;
+#X connect 3 0 13 1;
+#X connect 4 0 1 0;
+#X connect 4 0 9 0;
+#X connect 4 0 19 0;
+#X connect 5 0 12 1;
+#X connect 6 0 7 0;
+#X connect 7 0 1 1;
+#X connect 7 0 9 1;
+#X connect 8 0 1 0;
+#X connect 8 0 9 0;
+#X connect 8 0 10 0;
+#X connect 9 0 5 0;
+#X connect 10 0 11 0;
+#X connect 11 0 14 0;
+#X connect 11 1 15 0;
+#X connect 12 0 17 0;
+#X connect 13 0 17 0;
+#X connect 14 0 13 0;
+#X connect 15 0 12 0;
+#X connect 16 0 25 0;
+#X connect 17 0 16 0;
+#X connect 19 0 2 0;
+#X connect 19 0 10 0;
+#X connect 21 0 22 0;
+#X connect 22 0 28 0;
+#X connect 22 1 29 0;
+#X connect 23 0 21 0;
+#X connect 24 0 31 1;
+#X connect 24 0 30 1;
+#X connect 24 0 23 0;
+#X connect 25 0 31 2;
+#X connect 25 0 30 2;
+#X connect 28 0 31 0;
+#X connect 29 0 30 0;
+#X connect 30 0 33 0;
+#X connect 30 0 34 0;
+#X connect 31 0 32 0;
+#X connect 31 0 35 0;
+#X connect 32 0 42 0;
+#X connect 33 0 42 0;
+#X connect 36 0 24 0;
+#X connect 36 0 37 0;
+#X connect 37 0 4 0;
+#X connect 40 0 21 0;
+#X connect 42 0 43 0;
+#X connect 44 0 10 0;
+#X connect 45 0 2 0;
